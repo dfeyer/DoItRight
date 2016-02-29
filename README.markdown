@@ -1,5 +1,11 @@
-##formidable-react-native-app-boilerplate
-> React Native / Redux / Babel boilerplate.
+## DoItRight
+> React Native / Redux / Babel playground, goals is to build a todo apps on top of the UI provided by [Invision](http://www.invisionapp.com/do).
+
+Currently the focus on the project is on the UI implementation.
+
+External contributions highly welcome. I start this project to learn React Native, so open to comments and external reviews.
+
+Feel free to contact me on [twitter](https://twitter.com/dfeyer)
 
 #### Features
 
@@ -7,19 +13,18 @@
 - ES6 Class support
 - Redux with Async actions via `redux-thunk` and console logging via `redux-logger`
 - Navigator & NavigationBar
-- Android support
-- ESLint preconfigured with settings from [eslint-config-defaults](https://github.com/walmartlabs/eslint-config-defaults)
+- ESLint preconfigured with settings from [eslint-config-airbnb](https://www.npmjs.com/package/eslint-config-airbnb)
 - Flowtype annotations preconfigured
 
 #### Getting Started
 
 - Make sure XCode is installed.
 
-- Install React Native following the instructions detailed here [https://facebook.github.io/react-native/docs/getting-started.html#content](https://facebook.github.io/react-native/docs/getting-started.html#content)
+- Install React Native
 
 - Clone this repo and then run `npm install`
 
-- Open XCode and open `/ios/App.xcodeproj`
+- Open XCode and open `/ios/DoItRight.xcodeproj`
 
 #### Running IOS
 
