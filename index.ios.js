@@ -5,4 +5,4 @@ const {
   AppRegistry
 } = React;
 
-AppRegistry.registerComponent("App", () => Root);
+AppRegistry.registerComponent("DoItRight", () => Root);
