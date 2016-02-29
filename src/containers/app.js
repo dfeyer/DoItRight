@@ -42,6 +42,6 @@ App.defaultProps = {
 };
 
 export default connect((state) => ({
-  isFetching: state.data.isFetching,
-  message: state.data.message,
+  isFetching: state.data.get('isFetching'),
+  message: state.data.get('message'),
 }))(App);

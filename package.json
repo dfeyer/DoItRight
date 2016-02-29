@@ -8,6 +8,7 @@
     "start": "node_modules/react-native/packager/packager.sh"
   },
   "dependencies": {
+    "immutable": "^3.7.6",
     "lodash": "^4.5.1",
     "react-native": "^0.20.0",
     "react-redux": "3.*",
