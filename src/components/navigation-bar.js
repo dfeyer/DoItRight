@@ -1,14 +1,14 @@
 /* @flow */
-/*eslint-disable prefer-const */
+/* eslint-disable prefer-const */
 
-import React from "react-native";
+import React from 'react-native';
 
 let {
   StatusBarIOS,
   StyleSheet,
   Text,
   TouchableOpacity,
-  View
+  View,
 } = React;
 
 const NAV_BAR_HEIGHT = 44;
@@ -18,65 +18,51 @@ const NAV_HEIGHT = NAV_BAR_HEIGHT + STATUS_BAR_HEIGHT;
 const styles = StyleSheet.create({
   navBarContainer: {
     height: NAV_HEIGHT,
-    backgroundColor: "white",
+    backgroundColor: 'white',
     paddingBottom: 5,
-    borderBottomColor: "rgba(0, 0, 0, 0.5)",
-    borderBottomWidth: 1 / React.PixelRatio.get()
+    borderBottomColor: 'rgba(0, 0, 0, 0.5)',
+    borderBottomWidth: 1 / React.PixelRatio.get(),
   },
   navBar: {
     height: NAV_HEIGHT,
-    flexDirection: "row",
-    justifyContent: "space-between"
+    flexDirection: 'row',
+    justifyContent: 'space-between',
   },
   customTitle: {
-    position: "absolute",
-    alignItems: "center",
+    position: 'absolute',
+    alignItems: 'center',
     bottom: 5,
     left: 0,
-    right: 0
+    right: 0,
   },
   navBarText: {
     fontSize: 16,
     marginVertical: 10,
     flex: 2,
-    textAlign: "center"
+    textAlign: 'center',
   },
   navBarTitleText: {
-    color: "#373e4d",
-    fontWeight: "500",
-    position: "absolute",
+    color: '#373e4d',
+    fontWeight: '500',
+    position: 'absolute',
     left: 0,
     right: 0,
-    bottom: 15
+    bottom: 15,
   },
   navBarLeftButton: {
     paddingLeft: 10,
-    marginVertical: 20
+    marginVertical: 20,
   },
   navBarRightButton: {
     marginVertical: 20,
-    paddingRight: 10
+    paddingRight: 10,
   },
   navBarButtonText: {
-    color: "#5890ff"
-  }
+    color: '#5890ff',
+  },
 });
 
 class NavigationBar extends React.Component {
-  prevButtonShouldBeHidden(): Boolean {
-    let {
-      onPrev,
-      hidePrev,
-      navigator
-    } = this.props;
-
-    const getCurrentRoutes = navigator.getCurrentRoutes;
-
-    return (
-      hidePrev ||
-      (getCurrentRoutes && getCurrentRoutes().length <= 1 && !onPrev)
-    );
-  }
   getLeftButtonElement() {
     let {
       onPrev,
@@ -84,7 +70,7 @@ class NavigationBar extends React.Component {
       navigator,
       route,
       buttonsColor,
-      customPrev
+      customPrev,
     } = this.props;
 
     if (customPrev) {
@@ -106,8 +92,8 @@ class NavigationBar extends React.Component {
     return (
       <TouchableOpacity onPress={onPress}>
         <View style={styles.navBarLeftButton}>
-          <Text style={[styles.navBarText, styles.navBarButtonText, customStyle ]}>
-            {prevTitle || "Back"}
+          <Text style={ [styles.navBarText, styles.navBarButtonText, customStyle] }>
+            {prevTitle || 'Back'}
           </Text>
         </View>
       </TouchableOpacity>
@@ -119,7 +105,7 @@ class NavigationBar extends React.Component {
       titleColor,
       customTitle,
       navigator,
-      route
+      route,
     } = this.props;
 
     if (customTitle) {
@@ -137,7 +123,7 @@ class NavigationBar extends React.Component {
     const titleStyle = [
       styles.navBarText,
       styles.navBarTitleText,
-      { color: titleColor }
+      { color: titleColor },
     ];
 
     return (
@@ -153,7 +139,7 @@ class NavigationBar extends React.Component {
       navigator,
       route,
       buttonsColor,
-      customNext
+      customNext,
     } = this.props;
 
     if (customNext) {
@@ -169,25 +155,39 @@ class NavigationBar extends React.Component {
     return (
       <TouchableOpacity onPress={() => onNext(navigator, route)}>
         <View style={styles.navBarRightButton}>
-          <Text style={[styles.navBarText, styles.navBarButtonText, customStyle ]}>
-            {nextTitle || "Next"}
+          <Text style={ [styles.navBarText, styles.navBarButtonText, customStyle] }>
+            {nextTitle || 'Next'}
           </Text>
         </View>
       </TouchableOpacity>
     );
   }
+  prevButtonShouldBeHidden(): Boolean {
+    let {
+      onPrev,
+      hidePrev,
+      navigator,
+    } = this.props;
+
+    const getCurrentRoutes = navigator.getCurrentRoutes;
+
+    return (
+      hidePrev ||
+      (getCurrentRoutes && getCurrentRoutes().length <= 1 && !onPrev)
+    );
+  }
   render() {
-    if (this.props.statusBar === "lightContent") {
-      StatusBarIOS.setStyle("light-content", false);
-    } else if (this.props.statusBar === "default") {
-      StatusBarIOS.setStyle("default", false);
+    if (this.props.statusBar === 'lightContent') {
+      StatusBarIOS.setStyle('light-content', false);
+    } else if (this.props.statusBar === 'default') {
+      StatusBarIOS.setStyle('default', false);
     }
 
     let { style, backgroundStyle } = this.props;
 
     return (
-      <View style={[styles.navBarContainer, backgroundStyle ]}>
-        <View style={[styles.navBar, style ]}>
+      <View style={ [styles.navBarContainer, backgroundStyle] }>
+        <View style={ [styles.navBar, style] }>
           {this.getTitleElement()}
           {this.getLeftButtonElement()}
           {this.getRightButtonElement()}
@@ -213,7 +213,7 @@ NavigationBar.propTypes = {
   statusBar: React.PropTypes.string,
   style: React.PropTypes.object,
   title: React.PropTypes.string,
-  titleColor: React.PropTypes.string
+  titleColor: React.PropTypes.string,
 };
 
 export default NavigationBar;

@@ -1,13 +1,13 @@
 /* @flow */
-/*eslint-disable prefer-const */
+/* eslint-disable prefer-const */
 
-import React from "react-native";
-import { connect } from "react-redux/native";
-import { fetchData } from "../actions";
+import React from 'react-native';
+import { connect } from 'react-redux/native';
+import { fetchData } from '../actions';
 
 let {
   Text,
-  ScrollView
+  ScrollView,
 } = React;
 
 class App extends React.Component {
@@ -17,13 +17,13 @@ class App extends React.Component {
   render() {
     return (
       <ScrollView
-        style={{flex: 1}}
-        contentContainerStyle={{
-          justifyContent: "center",
-          alignItems: "center"
-        }}
+        style={ { flex: 1 } }
+        contentContainerStyle={ {
+          justifyContent: 'center',
+          alignItems: 'center',
+        } }
       >
-        <Text>{this.props.isFetching ? "Loading" : this.props.message}</Text>
+        <Text>{this.props.isFetching ? 'Loading' : this.props.message}</Text>
       </ScrollView>
     );
   }
@@ -32,16 +32,16 @@ class App extends React.Component {
 App.propTypes = {
   dispatch: React.PropTypes.func,
   message: React.PropTypes.string,
-  isFetching: React.PropTypes.bool
+  isFetching: React.PropTypes.bool,
 };
 
 App.defaultProps = {
   dispatch: () => {},
   isFetching: false,
-  message: ""
+  message: '',
 };
 
 export default connect((state) => ({
   isFetching: state.data.isFetching,
-  message: state.data.message
+  message: state.data.message,
 }))(App);

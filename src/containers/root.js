@@ -1,9 +1,9 @@
 /* @flow */
 
-import React from "react-native";
-import { Provider } from "react-redux/native";
-import configureStore from "../store/configure-store";
-import Scene from "../components/scene";
+import React from 'react-native';
+import { Provider } from 'react-redux/native';
+import configureStore from '../store/configure-store';
+import Scene from '../components/scene';
 
 const store = configureStore();
 
